@@ -1,0 +1,93 @@
+{% extends 'index.html' %} {% block body %}
+<body>
+  <!-- Skulle vilja ändra och ha stylingen i css file istället -->
+  <style>
+    table {
+      width: 50%;
+      border-collapse: collapse;
+    }
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+    th,
+    td {
+      text-align: center;
+    }
+    th {
+      background-color: #85c436;
+    }
+    h1 {
+      color: #ff3195;
+      margin-top: 20px;
+    }
+    p {
+      color: black;
+    }
+  </style>
+
+  <h1>Data for deals 2022</h1>
+  <br />
+
+  <h5>Total number and deal value per month, for won deals in 2022:</h5>
+
+  <table
+    class="table table-dark table-striped shadow-lg p-3 mb-5"
+    style="border: 10px"
+  >
+    <tr>
+      <th>Month</th>
+      <th>Total Number</th>
+      <th>Total Deal Value</th>
+    </tr>
+    {% for month_data in deals_year_list %} {% for month, data in
+    month_data.items() %}
+    <tr>
+      <td>{{ month.capitalize() }}</td>
+      <td>{{ data.numOfDeals }}</td>
+      <td>{{ data.totalDealValue }}</td>
+    </tr>
+    {% endfor %} {% endfor %}
+  </table>
+
+  <div>
+    <h5>Average value for won deals in 2022:</h5>
+
+    <div class="container" style="display: flex; justify-content: left">
+      <span
+        style="
+          background-color: #ff3195;
+          color: white;
+          padding: 15px 25px;
+          font-weight: bold;
+          margin-bottom: 20px;
+        "
+        >{{ average_value }}</span
+      >
+    </div>
+  </div>
+
+  <h5>Total value for won deals per customer in 2022:</h5>
+  <table
+    class="table table-dark table-striped shadow-lg p-3 mb-5"
+    style="border: 10px"
+  >
+    <tr>
+      <th>Company</th>
+      <th>Total Deal Value</th>
+    </tr>
+
+    {% for company_value in deals_per_customer_list %} {% for company_name,
+    deals_value in company_value.items() %}
+    <tr>
+      <td>{{ company_name }}</td>
+      <td>{{ deals_value }}</td>
+    </tr>
+    {% endfor %} {% endfor %}
+  </table>
+
+  <br />
+  {% endblock %}
+</body>

@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <div class="container">
+    <img
+      src="{{ url_for('static', filename='Dreamteam_logo.jpg') }}"
+      width="100"
+      height="45"
+    />
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link btn_home" href="/"
+            >Home<span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn_deals" href="/deals">Deals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn_company" href="/company">Company</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .btn_home:hover {
+    color: #85c436 !important;
+    text-decoration: underline;
+  }
+  .btn_deals:hover {
+    color: #ff3195 !important;
+    text-decoration: underline;
+  }
+  .btn_company:hover {
+    color: #00b3a7 !important;
+    text-decoration: underline;
+  }
+</style>

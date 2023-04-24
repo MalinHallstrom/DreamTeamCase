@@ -1,0 +1,81 @@
+{% extends 'index.html' %} {% block body %}
+<body>
+  <!-- Skulle vilja ändra och ha stylingen i css file istället -->
+  <style>
+    table {
+      width: 50%;
+      border-collapse: collapse;
+    }
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+    th,
+    td {
+      text-align: center;
+    }
+    th {
+      background-color: #85c436;
+    }
+    h1 {
+      color: #00b3a7;
+      margin-top: 20px;
+    }
+    p {
+      color: #f77619;
+    }
+  </style>
+
+  <h1>Company Status</h1>
+  <br />
+
+  <br />
+
+  <h5>Companies with "customer" status:</h5>
+  <table
+    class="table table-dark table-striped shadow-lg p-3 mb-5"
+    style="border: 10px"
+  >
+    <tr>
+      <th>Company</th>
+      <th>Company Status</th>
+    </tr>
+
+    {% for company_status in deals_per_customer_list %} {% for company_name,
+    company_status in company_status.items() %}
+
+    <tr>
+      <td>{{ company_name }}</td>
+      <td>{{ company_status }}</td>
+    </tr>
+    {% endfor %} {% endfor %}
+  </table>
+
+  <br />
+
+  <h5>Companies with "inactive" status:</h5>
+  <table
+    class="table table-dark table-striped shadow-lg p-3 mb-5"
+    style="border: 10px"
+  >
+    <tr>
+      <th>Company</th>
+      <th>Company Status</th>
+    </tr>
+
+    {% for company_status in companies_status %} {% for company_name,
+    company_status in company_status.items() %}
+
+    <tr>
+      <td>{{ company_name }}</td>
+      <td>{{ company_status }}</td>
+    </tr>
+    {% endfor %} {% endfor %}
+  </table>
+
+  <br />
+
+  {% endblock %}
+</body>
